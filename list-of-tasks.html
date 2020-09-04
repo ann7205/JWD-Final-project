@@ -4,15 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Assign</title>
+    <title>Task List</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
-    <link rel="stylesheet" href="assign-card-v1.css">
+    <link rel="stylesheet" href="list-of-tasks.css">
 </head>
 
 <body>
-    <div class="container">
+    <div class="container-fluid">
         <!-- header  -->
         <header class="task-header d-flex justify-content-between align-items-center mt-3">
             <div class="btn last-page"><a class="btn" href="#" role="button"><i class="fas fa-angle-left"></i></a>
@@ -29,23 +29,25 @@
                         aria-expanded="false" title="status">
                         <i class="far fa-check-square"></i>
                     </button>
-                    <span class="due-date">Due date: </span><span class="date">19/08/2020</span>
+                    <p class="due-date">Due date: <span class="date">19/08/2020</span></p>
                     <div class="dropdown-menu" aria-labelledby="statusMenu1">
                         <a class="dropdown-item" href="#">Todo</a>
                         <a class="dropdown-item" href="#">Progress</a>
                         <a class="dropdown-item" href="#">Review</a>
                         <a class="dropdown-item" href="#">Done</a>
                     </div>
+                    <!-- select button  -->
                     <button class="btn s-circle" type="button" value="Input"><i class="far fa-circle"></i></button>
                 </div>
                 <!-- assign button  -->
-                <div class="dropdown assign-btn d-flex">
+                <div class="dropdown assign-btn">
                     <button class="btn" type="button" id="assignMenu1" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false" title="assign to">
                         <i class="fas fa-user-tag"></i>
-                    </button><span class="task-title">Lorem ipsum dolor sit amet consectetur
+                    </button>
+                    <p class="task-title">Lorem ipsum dolor sit amet consectetur
                         adipisicing
-                        elit.</span>
+                        elit.</p>
                     <div class="dropdown-menu" aria-labelledby="assignMenu1">
                         <a class="dropdown-item" href="#">Lee</a>
                         <a class="dropdown-item" href="#">Liz</a>
@@ -78,25 +80,25 @@
                         aria-expanded="false" title="status">
                         <i class="far fa-check-square"></i>
                     </button>
-                    <span class="due-date text-left">Due date: </span><span class="date">19/08/2020</span>
+                    <p class="due-date">Due date: <span class="date">19/08/2020</span></p>
                     <div class="dropdown-menu" aria-labelledby="statusMenu2">
                         <a class="dropdown-item" href="#">Todo</a>
                         <a class="dropdown-item" href="#">Progress</a>
                         <a class="dropdown-item" href="#">Review</a>
                         <a class="dropdown-item" href="#">Done</a>
                     </div>
+                    <!-- select button  -->
                     <button class="btn s-circle" type="button" value="Input"><i class="far fa-circle"></i></button>
                 </div>
-
                 <!-- assign button  -->
-                <div class="dropdown assign-btn d-flex justify-content-between align-items-center">
+                <div class="dropdown assign-btn">
                     <button class="btn" type="button" id="assignMenu2" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false" title="assign to">
                         <i class="fas fa-user-tag"></i>
                     </button>
-                    <span class="task-title">Lorem ipsum dolor sit amet consectetur
+                    <p class="task-title">Lorem ipsum dolor sit amet consectetur
                         adipisicing
-                        elit.</span>
+                        elit.</p>
                     <div class="dropdown-menu" aria-labelledby="assignMenu2">
                         <a class="dropdown-item" href="#">Lee</a>
                         <a class="dropdown-item" href="#">Liz</a>
@@ -119,6 +121,25 @@
                 </div>
             </div>
         </div>
+        <!-- footer  -->
+        <footer class="task-footer fixed-bottom">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <div class="collapse navbar-collapse" id="navbarNavBtn">
+                    <div class="navbar-nav">
+                        <a class="nav-item nav-link active" href="#">Board</a>
+                        <a class="nav-item nav-link" href="#">Archive tasks</a>
+                        <a class="nav-item nav-link" href="#">Log in / Sign up</a>
+                        <a class="nav-item nav-link" href="#">Settings</a>
+                    </div>
+                </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavBtn"
+                    aria-controls="navbarNavBtn" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="btn add-new-list"><a class="navbar-brand" href="#"><i class="fas fa-plus"></i></a></div>
+                <div class="btn search"><a class="navbar-brand" href="#"><i class="fas fa-search"></i></a></div>
+            </nav>
+        </footer>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

@@ -2,10 +2,16 @@
     --uni-font-family: Arial,
         Helvetica,
         sans-serif;
-    --max-width: 30rem;
+    --min-width: 375px;
+    --max-width: 60%;
 }
 
 *,
+h1,
+h2,
+h3,
+h4,
+p,
 *::before,
 *::after {
     box-sizing: border-box;
@@ -20,7 +26,9 @@ body {
 }
 
 .task-header {
+    min-width: var(--min-width);
     max-width: var(--max-width);
+    margin: 0 auto;
 }
 
 .task-header .btn i {
@@ -28,10 +36,36 @@ body {
 }
 
 .card {
+    min-width: var(--min-width);
     max-width: var(--max-width);
+    margin: 0 auto;
     margin-bottom: .5rem;
 }
 
-.status-btn .s-circle {
+.card-body {
+    display: grid;
+}
+
+.dropdown {
+    display: grid;
+    grid-template-columns: .5fr 3fr .5fr;
+    align-items: center;
+}
+
+.card-body .dropdown .s-circle {
     float: right;
+}
+
+.card-body .assign-btn .task-des-btn {
+    float: right;
+}
+
+.task-footer .navbar {
+    min-width: var(--min-width);
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+.task-footer .navbar .navbar-toggler {
+    border-color: transparent;
 }
