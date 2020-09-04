@@ -1,0 +1,66 @@
+:root {
+    --uni-font-family: Arial,
+        Helvetica,
+        sans-serif;
+    --min-width: 375px;
+    --max-width: 60%;
+}
+
+*,
+h1,
+h2,
+h3,
+h4,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--uni-font-family);
+    width: 100vw;
+    height: 100vh;
+}
+
+.board-header {
+    min-width: var(--min-width);
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+.board-header .btn i {
+    font-size: 2rem;
+}
+
+.card {
+    min-width: var(--min-width);
+    max-width: var(--max-width);
+    margin: 0 auto;
+    margin-bottom: .5rem;
+}
+
+.card-body {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    align-items: center;
+}
+
+.card-body .title {
+    margin-bottom: 0;
+}
+
+.card-body .s-circle {
+    float: right;
+}
+
+.board-footer .navbar {
+    min-width: var(--min-width);
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+.board-footer .navbar .navbar-toggler {
+    border-color: transparent;
+}
