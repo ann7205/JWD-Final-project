@@ -2,7 +2,7 @@
     --uni-font-family: Arial,
         Helvetica,
         sans-serif;
-    --min-width: 375px;
+    --min-width: 360px;
     --max-width: 60%;
 }
 
@@ -25,9 +25,12 @@ body {
     height: 100vh;
 }
 
-.task-header {
+.container-fluid {
     min-width: var(--min-width);
     max-width: var(--max-width);
+}
+
+.task-header {
     margin: 0 auto;
 }
 
@@ -36,8 +39,6 @@ body {
 }
 
 .card {
-    min-width: var(--min-width);
-    max-width: var(--max-width);
     margin: 0 auto;
     margin-bottom: .5rem;
 }
