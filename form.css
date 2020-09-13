@@ -1,0 +1,87 @@
+:root {
+    --uni-font-family: Arial,
+        Helvetica,
+        sans-serif;
+    --min-width: 360px;
+    --max-width: 60%;
+}
+
+*,
+h1,
+h2,
+h3,
+h4,
+p,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--uni-font-family);
+    width: 100vw;
+    height: 100vh;
+}
+
+.container-fluid {
+    min-width: var(--min-width);
+    max-width: var(--max-width);
+}
+
+/* header  */
+.board-header {
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: .1fr 1fr;
+    align-items: center;
+}
+
+.board-header .btn {
+    justify-self: start;
+}
+
+.board-header .btn i {
+    font-size: 2rem;
+}
+
+.board-header h2 {
+    justify-self: center;
+}
+
+/* form  */
+form {
+    margin: 0 auto;
+    margin-bottom: .5rem;
+}
+
+.form-group {
+    margin-bottom: 8px;
+}
+
+.status {
+    display: grid;
+    grid-template-columns: .5fr 1.5fr 3fr .5fr;
+    align-items: center;
+    text-align: center;
+}
+
+.assign {
+    display: grid;
+    grid-template-columns: .5fr 2fr .5fr;
+}
+
+.form-group .dropdown .select-btn {
+    float: right;
+}
+
+.form-group .assign .task-des-btn {
+    float: right;
+}
+
+.d-flex {
+    min-width: var(--min-width);
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
