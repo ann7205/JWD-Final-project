@@ -71,6 +71,7 @@ label[for=task-title] {
     grid-template-columns: .5fr 3fr .5fr;
     align-items: center;
     text-align: center;
+    margin-bottom: .5rem;
 }
 
 .group-due-date {
