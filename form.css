@@ -80,26 +80,6 @@ label[for=task-title] {
     align-items: center;
 }
 
-/* .status {
-    display: grid;
-    grid-template-columns: .5fr 1.5fr 3fr .5fr;
-    align-items: center;
-    text-align: center;
-}
-
-.assign {
-    display: grid;
-    grid-template-columns: .5fr 2fr .5fr;
-} */
-
-/* .form-group .dropdown .select-btn {
-    float: right;
-}
-
-.form-group .assign .task-des-btn {
-    float: right;
-} */
-
 .submit-cancel-btn {
     min-width: var(--min-width);
     max-width: var(--max-width);
