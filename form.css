@@ -57,10 +57,29 @@ form {
 }
 
 .form-group {
-    margin-bottom: 8px;
+    margin-bottom: 0;
+    position: relative;
 }
 
-.status {
+.form-group label[for=name],
+label[for=task-title] {
+    width: 100%;
+}
+
+.wrap-groups {
+    display: grid;
+    grid-template-columns: .5fr 3fr .5fr;
+    align-items: center;
+    text-align: center;
+}
+
+.group-due-date {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+/* .status {
     display: grid;
     grid-template-columns: .5fr 1.5fr 3fr .5fr;
     align-items: center;
@@ -70,17 +89,17 @@ form {
 .assign {
     display: grid;
     grid-template-columns: .5fr 2fr .5fr;
-}
+} */
 
-.form-group .dropdown .select-btn {
+/* .form-group .dropdown .select-btn {
     float: right;
 }
 
 .form-group .assign .task-des-btn {
     float: right;
-}
+} */
 
-.d-flex {
+.submit-cancel-btn {
     min-width: var(--min-width);
     max-width: var(--max-width);
     margin: 0 auto;
