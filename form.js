@@ -12,12 +12,12 @@ const taskContent = document.querySelector('#task-content')
 
 // Name 
 inputName.addEventListener('input', (e) => {
-    e.target.classList.remove('is-invalid')
+    e.target.classList.remove('is-invalid', 'is-valid')
     inputLength = e.target.value.length
     // console.log(name.value)
     // let invalidFeedback = inputLength === 0 ? e.target.classList.add('invalid') :
     //     (inputLength > 15 ? e.target.classList.add('is-invalid'))
-    if (inputLength === 0 || inputLength > 15) {
+    if (inputLength === 0 || inputLength > 20) {
         e.target.classList.add('is-invalid')
     } else {
         e.target.classList.add('is-valid')
@@ -25,9 +25,9 @@ inputName.addEventListener('input', (e) => {
 })
 
 taskTitle.addEventListener('input', (e) => {
-    e.target.classList.remove('is-invalid')
+    e.target.classList.remove('is-invalid', 'is-valid')
     inputLength = e.target.value.length
-    if (inputLength === 0 || inputLength > 15) {
+    if (inputLength === 0 || inputLength > 20) {
         e.target.classList.add('is-invalid')
     } else {
         e.target.classList.add('is-valid')
@@ -36,6 +36,7 @@ taskTitle.addEventListener('input', (e) => {
 
 // Due-date 
 date.addEventListener('change', (e) => {
+    e.target.classList.remove('is-invalid', 'is-valid')
     let inputValue = e.target.value
     // console.log(inputValue) //string
     let inputDate = new Date(inputValue)
@@ -50,7 +51,7 @@ date.addEventListener('change', (e) => {
 
 // Description 
 taskContent.addEventListener('input', (e) => {
-    e.target.classList.remove('is-invalid')
+    e.target.classList.remove('is-invalid', 'is-valid')
     inputLength = e.target.value.length
     // console.log(name.value)
     if (inputLength === 0 || inputLength > 100) {
