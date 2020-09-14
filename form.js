@@ -5,12 +5,63 @@ const date = document.querySelector('#date')
 const taskTitle = document.querySelector('#task-title')
 const taskContent = document.querySelector('#task-content')
 
-//when user inputs the info of task: name, due date, task title, task content
-//use a function to store and build up the structured data
-//when click the submit button
-//put the data into the local stroaage
+// JSON format objects
 
-// Name 
+let tasksList = [{
+        id: 0001,
+        name: 'task',
+        description: 'test',
+        AssignedTo: 'Liz',
+        DueDate: '2020-10-01',
+        Status: 'Todo'
+    },
+    {
+        id: 0002,
+        name: 'task',
+        description: 'test',
+        AssignedTo: 'Leo',
+        DueDate: '2020-10-01',
+        Status: 'Todo'
+    }
+]
+// *make id number the same as array index number
+class TaskManager {
+    // define a tasks array/object to hold the tasks
+    constructor() {
+        this.tasks = []
+    }
+    // get tasks
+    getAllTasks() {
+        return this.tasks
+    }
+    // get tasks with a given status: when requiring for certain status and list the tasks
+    getTasksWithStatus(status) {
+        return this.tasks.filter(function (task) {
+            return task.status === status
+        })
+    }
+    // add task
+    addTask(task) {
+        this.tasks.push(task)
+    }
+    // delete task
+    deleteTask(task) {
+        let taskIndex = this.tasks.findIndex(t => t.id === task.id)
+        this.tasks.splice(taskIndex, 1)
+    }
+    // update task status
+    updateTask(taskId, status) {
+        const taskIndex = this.tasks.findIndex(task => task.id === taskId)
+        this.task[taskIndex].status = status
+    }
+    // Assign a task to someone
+    assignTask(taskId, assignee) {
+        const taskIndex = this.tasks.findIndex(task => task.id === taskId)
+        this.tasks[taskIndex].assignee = assignee
+    }
+}
+
+// Name validation
 inputName.addEventListener('input', (e) => {
     e.target.classList.remove('is-invalid', 'is-valid')
     inputLength = e.target.value.length
@@ -24,6 +75,7 @@ inputName.addEventListener('input', (e) => {
     }
 })
 
+// Task title validation
 taskTitle.addEventListener('input', (e) => {
     e.target.classList.remove('is-invalid', 'is-valid')
     inputLength = e.target.value.length
@@ -34,7 +86,7 @@ taskTitle.addEventListener('input', (e) => {
     }
 })
 
-// Due-date 
+// Due-date validation
 date.addEventListener('change', (e) => {
     e.target.classList.remove('is-invalid', 'is-valid')
     let inputValue = e.target.value
@@ -49,7 +101,7 @@ date.addEventListener('change', (e) => {
     }
 })
 
-// Description 
+// Task description validation
 taskContent.addEventListener('input', (e) => {
     e.target.classList.remove('is-invalid', 'is-valid')
     inputLength = e.target.value.length
