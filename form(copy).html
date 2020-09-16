@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+    <link rel="stylesheet" href="form.css">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <header class="board-header mt-3">
+            <div class="last-page-btn btn"><a class="btn" href="#" role="button"><i class="fas fa-angle-left"></i></a>
+            </div>
+            <h2 class="header-title">Task</h2>
+        </header>
+        <form action="#" method="post" id="form">
+            <!-- name  -->
+            <div class="group-name form-group">
+                <label for="name">
+                    <input type="text" class="form-control inline-block" value="" id="name" placeholder="Name">
+                </label>
+                <div class="invalid-tooltip">
+                    <p>Please enter name within 15 characters</p>
+                </div>
+                <div class="valid-feedback"></div>
+            </div>
+            <!-- wrapped status button, due date, select button  -->
+            <div class="wrap-groups">
+                <!-- status button  -->
+                <div class="group-status form-group">
+                    <div class="status dropdown">
+                        <button class="btn status-btn" type="button" id="statusMenu" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false" title="status">
+                            <i class="far fa-square"></i>
+                        </button>
+                        <div class="status-dropdown dropdown-menu" aria-labelledby="statusMenu">
+                            <a class="status1 dropdown-item" href="#">Todo</a>
+                            <a class="status2 dropdown-item" href="#">Progress</a>
+                            <a class="status3 dropdown-item" href="#">Review</a>
+                            <a class="status4 dropdown-item" href="#">Done</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- due date -->
+                <div class="group-due-date form-group">
+                    <p class="due-date">Due date</p>
+                    <label for="date" class="mb-0">
+                        <input type="date" class="form-control" id="date" class="form-control" name="due-date" value=""
+                            placeholder="dd/mm/yyyy">
+                    </label>
+                    <div class="invalid-tooltip">
+                        <p>Please select the valid date</p>
+                    </div>
+                    <div class="valid-feedback"></div>
+                </div>
+                <!-- select button  -->
+                <button class="select-btn btn disabled" type="button"><i class="far fa-circle"></i></button>
+            </div>
+            <!-- wrapped assign button, task title, task description button  -->
+            <div class="wrap-groups">
+                <!-- assign button  -->
+                <div class="group-assign form-group">
+                    <div class="assign dropdown">
+                        <button class="assign-btn btn" type="button" id="assignMenu" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false" title="assign to">
+                            <i class="fas fa-user-tag"></i>
+                        </button>
+                        <div class="assign-dropdown dropdown-menu" aria-labelledby="assignMenu">
+                            <a class="dropdown-item" href="#">Lee</a>
+                            <a class="dropdown-item" href="#">Liz</a>
+                            <a class="dropdown-item" href="#">Alan</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- task title  -->
+                <div class="group-title form-group">
+                    <label for="task-title" class="mb-0">
+                        <input type="text" class="form-control" id="task-title" value="" placeholder="Task title">
+                    </label>
+                    <div class="invalid-tooltip">
+                        <p>Please enter name within 15 characters</p>
+                    </div>
+                    <div class="valid-feedback"></div>
+                </div>
+                <!-- task description button -->
+                <button class="task-collapse-btn btn disabled" type="button" data-toggle="collapse"
+                    data-target="#task-collapse-btn" aria-expanded="false" aria-controls="task-collapse-btn">
+                    <i class="fas fa-angle-double-down"></i>
+                </button>
+            </div>
+            <!-- contents  -->
+            <div class="group-content form-group mt-3">
+                <textarea class="form-control" id="task-content" rows="10" value=""></textarea>
+                <div class="invalid-tooltip">
+                    <p>Please enter description within 100 characters</p>
+                </div>
+                <div class="valid-feedback"></div>
+            </div>
+            <!-- submit button  -->
+            <div class="submit-cancel-btn d-flex justify-content-around fixed-bottom">
+                <button type="submit" class="sub-btn btn btn-secondary mb-2">Submit</button>
+                <button type="submit" class="cel-btn btn btn-secondary mb-2">Cancel</button>
+            </div>
+        </form>
+
+
+        <!-- task card 1 -->
+        <div class="card">
+            <div class="card-body">
+                <!-- status button  -->
+                <div class="dropdown status-btn">
+                    <button class="btn" type="button" id="statusMenu1" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false" title="status">
+                        <i class="far fa-check-square"></i>
+                    </button>
+                    <p class="due-date">Due date: <span class="date">19/08/2020</span></p>
+                    <div class="dropdown-menu" aria-labelledby="statusMenu1">
+                        <a class="dropdown-item" href="#">Todo</a>
+                        <a class="dropdown-item" href="#">Progress</a>
+                        <a class="dropdown-item" href="#">Review</a>
+                        <a class="dropdown-item" href="#">Done</a>
+                    </div>
+                    <!-- select button  -->
+                    <button class="btn s-circle" type="button" value="Input"><i class="far fa-circle"></i></button>
+                </div>
+                <!-- assign button  -->
+                <div class="dropdown assign-btn">
+                    <button class="btn" type="button" id="assignMenu1" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false" title="assign to">
+                        <i class="fas fa-user-tag"></i>
+                    </button>
+                    <p class="task-title">Lorem ipsum dolor sit amet consectetur
+                        adipisicing
+                        elit.</p>
+                    <div class="dropdown-menu" aria-labelledby="assignMenu1">
+                        <a class="dropdown-item" href="#">Lee</a>
+                        <a class="dropdown-item" href="#">Liz</a>
+                        <a class="dropdown-item" href="#">Alan</a>
+                    </div>
+                    <!-- task description button -->
+                    <button class="btn task-des-btn" type="button" data-toggle="collapse" data-target="#task-des1"
+                        aria-expanded="false" aria-controls="task-des1">
+                        <i class="fas fa-angle-double-down"></i>
+                    </button>
+                </div>
+                <div class="collapse" id="task-des1">
+                    <div class="card card-body">
+                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
+                        terry richardson ad squid.
+                        Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred
+                        nesciunt sapiente ea
+                        proident.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- task card 2 -->
+        <div class="card">
+            <div class="card-body">
+                <!-- status button  -->
+                <div class="dropdown status-btn">
+                    <button class="btn" type="button" id="statusMenu2" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false" title="status">
+                        <i class="far fa-check-square"></i>
+                    </button>
+                    <p class="due-date">Due date: <span class="date">19/08/2020</span></p>
+                    <div class="dropdown-menu" aria-labelledby="statusMenu2">
+                        <a class="dropdown-item" href="#">Todo</a>
+                        <a class="dropdown-item" href="#">Progress</a>
+                        <a class="dropdown-item" href="#">Review</a>
+                        <a class="dropdown-item" href="#">Done</a>
+                    </div>
+                    <!-- select button  -->
+                    <button class="btn s-circle" type="button" value="Input"><i class="far fa-circle"></i></button>
+                </div>
+                <!-- assign button  -->
+                <div class="dropdown assign-btn">
+                    <button class="btn" type="button" id="assignMenu2" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false" title="assign to">
+                        <i class="fas fa-user-tag"></i>
+                    </button>
+                    <p class="task-title">Lorem ipsum dolor sit amet consectetur
+                        adipisicing
+                        elit.</p>
+                    <div class="dropdown-menu" aria-labelledby="assignMenu2">
+                        <a class="dropdown-item" href="#">Lee</a>
+                        <a class="dropdown-item" href="#">Liz</a>
+                        <a class="dropdown-item" href="#">Alan</a>
+                    </div>
+                    <!-- task description button -->
+                    <button class="btn task-des-btn" type="button" data-toggle="collapse" data-target="#task-des2"
+                        aria-expanded="false" aria-controls="task-des2">
+                        <i class="fas fa-angle-double-down"></i>
+                    </button>
+                </div>
+                <div class="collapse" id="task-des2">
+                    <div class="card card-body">
+                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
+                        terry richardson ad squid.
+                        Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred
+                        nesciunt sapiente ea
+                        proident.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+    <script src="js/task-manager.js"></script>
+    <script src="js/index.js"></script>
+</body>
+
+</html>

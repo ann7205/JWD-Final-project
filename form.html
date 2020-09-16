@@ -18,11 +18,11 @@
             </div>
             <h2 class="header-title">Task</h2>
         </header>
-        <form action="">
+        <form action="#" method="post" id="form">
             <!-- name  -->
             <div class="group-name form-group">
                 <label for="name">
-                    <input type="text" class="form-control inline-block" id="name" placeholder="Name">
+                    <input type="text" class="form-control inline-block" value="" id="name" placeholder="Name">
                 </label>
                 <div class="invalid-tooltip">
                     <p>Please enter name within 15 characters</p>
@@ -50,7 +50,7 @@
                 <div class="group-due-date form-group">
                     <p class="due-date">Due date</p>
                     <label for="date" class="mb-0">
-                        <input type="date" class="form-control" id="date" class="form-control" name="due-date"
+                        <input type="date" class="form-control" id="date" class="form-control" name="due-date" value=""
                             placeholder="dd/mm/yyyy">
                     </label>
                     <div class="invalid-tooltip">
@@ -80,7 +80,8 @@
                 <!-- task title  -->
                 <div class="group-title form-group">
                     <label for="task-title" class="mb-0">
-                        <input type="text" class="form-control inline-block" id="task-title" placeholder="Task title">
+                        <input type="text" class="form-control inline-block" id="task-title" value=""
+                            placeholder="Task title">
                     </label>
 
                     <div class="invalid-tooltip">
@@ -97,7 +98,7 @@
             <!-- contents  -->
             <div class="group-content form-group mt-3">
                 <textarea class="form-control" id="task-content" rows="10"></textarea>
-                <div class="invalid-tooltip">
+                <div class="invalid-tooltip" value="">
                     <p>Please enter description within 100 characters</p>
                 </div>
                 <div class="valid-feedback"></div>
@@ -118,7 +119,8 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
-    <script src="form.js"></script>
+    <script src="js/task-manager.js"></script>
+    <script src="js/index.js"></script>
 </body>
 
 </html>
