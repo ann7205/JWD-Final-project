@@ -18,7 +18,7 @@
             </div>
             <h2 class="header-title">Task</h2>
         </header>
-        <form action="#" method="post" id="form">
+        <form action="#" method="post" class="needs-validation" id="form" novalidate>
             <!-- name  -->
             <div class="group-name form-group">
                 <label for="name">
@@ -34,7 +34,7 @@
                 <!-- status button  -->
                 <div class="group-status form-group">
                     <div class="status dropdown">
-                        <button class="btn status-btn" type="button" id="statusMenu" data-toggle="dropdown"
+                        <button class="status-btn btn" type="button" id="statusMenu" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false" title="status">
                             <i class="far fa-square"></i>
                         </button>
@@ -108,109 +108,14 @@
             </div>
         </form>
 
+        <div class="cards-container">
 
-        <!-- task card 1 -->
-        <div class="card">
-            <div class="card-body">
-                <!-- status button  -->
-                <div class="dropdown status-btn">
-                    <button class="btn" type="button" id="statusMenu1" data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false" title="status">
-                        <i class="far fa-check-square"></i>
-                    </button>
-                    <p class="due-date">Due date: <span class="date">19/08/2020</span></p>
-                    <div class="dropdown-menu" aria-labelledby="statusMenu1">
-                        <a class="dropdown-item" href="#">Todo</a>
-                        <a class="dropdown-item" href="#">Progress</a>
-                        <a class="dropdown-item" href="#">Review</a>
-                        <a class="dropdown-item" href="#">Done</a>
-                    </div>
-                    <!-- select button  -->
-                    <button class="btn s-circle" type="button" value="Input"><i class="far fa-circle"></i></button>
-                </div>
-                <!-- assign button  -->
-                <div class="dropdown assign-btn">
-                    <button class="btn" type="button" id="assignMenu1" data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false" title="assign to">
-                        <i class="fas fa-user-tag"></i>
-                    </button>
-                    <p class="task-title">Lorem ipsum dolor sit amet consectetur
-                        adipisicing
-                        elit.</p>
-                    <div class="dropdown-menu" aria-labelledby="assignMenu1">
-                        <a class="dropdown-item" href="#">Lee</a>
-                        <a class="dropdown-item" href="#">Liz</a>
-                        <a class="dropdown-item" href="#">Alan</a>
-                    </div>
-                    <!-- task description button -->
-                    <button class="btn task-des-btn" type="button" data-toggle="collapse" data-target="#task-des1"
-                        aria-expanded="false" aria-controls="task-des1">
-                        <i class="fas fa-angle-double-down"></i>
-                    </button>
-                </div>
-                <div class="collapse" id="task-des1">
-                    <div class="card card-body">
-                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
-                        terry richardson ad squid.
-                        Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred
-                        nesciunt sapiente ea
-                        proident.
-                    </div>
-                </div>
-            </div>
         </div>
 
-        <!-- task card 2 -->
-        <div class="card">
-            <div class="card-body">
-                <!-- status button  -->
-                <div class="dropdown status-btn">
-                    <button class="btn" type="button" id="statusMenu2" data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false" title="status">
-                        <i class="far fa-check-square"></i>
-                    </button>
-                    <p class="due-date">Due date: <span class="date">19/08/2020</span></p>
-                    <div class="dropdown-menu" aria-labelledby="statusMenu2">
-                        <a class="dropdown-item" href="#">Todo</a>
-                        <a class="dropdown-item" href="#">Progress</a>
-                        <a class="dropdown-item" href="#">Review</a>
-                        <a class="dropdown-item" href="#">Done</a>
-                    </div>
-                    <!-- select button  -->
-                    <button class="btn s-circle" type="button" value="Input"><i class="far fa-circle"></i></button>
-                </div>
-                <!-- assign button  -->
-                <div class="dropdown assign-btn">
-                    <button class="btn" type="button" id="assignMenu2" data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false" title="assign to">
-                        <i class="fas fa-user-tag"></i>
-                    </button>
-                    <p class="task-title">Lorem ipsum dolor sit amet consectetur
-                        adipisicing
-                        elit.</p>
-                    <div class="dropdown-menu" aria-labelledby="assignMenu2">
-                        <a class="dropdown-item" href="#">Lee</a>
-                        <a class="dropdown-item" href="#">Liz</a>
-                        <a class="dropdown-item" href="#">Alan</a>
-                    </div>
-                    <!-- task description button -->
-                    <button class="btn task-des-btn" type="button" data-toggle="collapse" data-target="#task-des2"
-                        aria-expanded="false" aria-controls="task-des2">
-                        <i class="fas fa-angle-double-down"></i>
-                    </button>
-                </div>
-                <div class="collapse" id="task-des2">
-                    <div class="card card-body">
-                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
-                        terry richardson ad squid.
-                        Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred
-                        nesciunt sapiente ea
-                        proident.
-                    </div>
-                </div>
-            </div>
-        </div>
+
     </div>
+
+
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
     </script>
@@ -220,7 +125,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
-    <script src="js/task-manager.js"></script>
     <script src="js/index.js"></script>
 </body>
 

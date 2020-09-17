@@ -3,3 +3,5 @@ assign-card-v1.html
 assign-modal-v1.html
 ref-switch pages
 fp_vs_oop_classes.js
+js/dist/
+.vscode
