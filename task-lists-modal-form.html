@@ -146,6 +146,110 @@
                 <div class="btn search"><a class="navbar-brand" href="#"><i class="fas fa-search"></i></a></div>
             </nav>
         </footer>
+
+
+        <!-- modal  -->
+        <div class="modal fade" id="modal-form" tabindex="-1" role="dialog" aria-labelledby="modal-form"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="task-form">
+                <div class="modal-content">
+                    <!-- modal header  -->
+                    <div class="modal-header">
+                        <h2 class="modal-title" id="modal-form">Task</h2>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <!-- modal body  -->
+                    <form class="modal-body" action="" method="post" id="form">
+                        <div class="wrap-groups row">
+                            <!-- status button  -->
+                            <div class="group-status form-group col-2">
+                                <div class="status dropdown">
+                                    <button class="status-btn btn" type="button" id="statusMenu" data-toggle="dropdown"
+                                        aria-haspopup="true" aria-expanded="false" title="status">
+                                        <i class="far fa-square"></i>
+                                    </button>
+                                    <div class="status-dropdown dropdown-menu" aria-labelledby="statusMenu">
+                                        <a class="status1 dropdown-item" href="#">Todo</a>
+                                        <a class="status2 dropdown-item" href="#">Progress</a>
+                                        <a class="status3 dropdown-item" href="#">Review</a>
+                                        <a class="status4 dropdown-item" href="#">Done</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- due date -->
+                            <div class="group-due-date form-group col-8 px-0">
+                                <label for="due-date" class="mb-0 d-flex">Due date
+                                    <input type="date" class="form-control" id="due-date" class="form-control"
+                                        name="due-date" value="" placeholder="dd/mm/yyyy">
+                                </label>
+                                <div class="invalid-tooltip">
+                                    <p>Please select the valid date</p>
+                                </div>
+                                <div class="valid-feedback"></div>
+                            </div>
+                            <!-- select button  -->
+                            <div class="form-group col-2">
+                                <button class="select-btn btn disabled" type="button"><i class="far fa-circle"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <!-- wrapped assign button, task title, task description button  -->
+                        <div class="wrap-groups row">
+                            <!-- assign button  -->
+                            <div class="group-assign form-group col-2">
+                                <div class="assign dropdown">
+                                    <button class="assign-btn btn" type="button" id="assignMenu" data-toggle="dropdown"
+                                        aria-haspopup="true" aria-expanded="false" title="assign to">
+                                        <i class="fas fa-user-tag"></i>
+                                    </button>
+                                    <div class="assign-dropdown dropdown-menu" aria-labelledby="assignMenu">
+                                        <a class="dropdown-item" href="#">Lee</a>
+                                        <a class="dropdown-item" href="#">Liz</a>
+                                        <a class="dropdown-item" href="#">Alan</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- task title  -->
+                            <div class="group-title form-group col-8 px-0">
+                                <label for="task-title" class="mb-0">
+                                    <input type="text" class="form-control" id="task-title" value=""
+                                        placeholder="Task title">
+                                </label>
+                                <div class="invalid-tooltip">
+                                    <p>Please enter name within 15 characters</p>
+                                </div>
+                                <div class="valid-feedback"></div>
+                            </div>
+                            <!-- task description button -->
+                            <button class="task-collapse-btn btn disabled col-2" type="button" data-toggle="collapse"
+                                data-target="#task-collapse-btn" aria-expanded="false"
+                                aria-controls="task-collapse-btn">
+                                <i class="fas fa-angle-double-down"></i>
+                            </button>
+
+                        </div>
+                        <!-- task contents  -->
+                        <div class="group-content form-group mt-3">
+                            <textarea class="form-control" id="task-content" rows="10" value=""></textarea>
+                            <div class="invalid-tooltip">
+                                <p>Please enter description within 100 characters</p>
+                            </div>
+                            <div class="valid-feedback"></div>
+                        </div>
+                        <!-- modal footer-submit button  -->
+                        <div class="submit-cancel-btn d-flex justify-content-around fixed">
+                            <button type="submit" formaction="list-of-tasks.html" class="sub-btn btn btn-secondary mb-2"
+                                data-dismiss="modal" aria-label="Close">
+                                Submit</button>
+                            <button type="button" class="cel-btn btn btn-secondary mb-2" data-dismiss="modal"
+                                aria-label="Close">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

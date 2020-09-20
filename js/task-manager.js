@@ -5,7 +5,7 @@ let displayCards = (tasksList) => {
     let htmlContents = ''
     tasksList.forEach(task => {
         htmlContents += `
-            <div class="card">
+            <div class="card" data-task-id="${task.id}">
                 <div class="card-body"> 
                     <!-- status button  -->
                     <div class="dropdown status-btn">
@@ -13,12 +13,9 @@ let displayCards = (tasksList) => {
                             aria-expanded="false" title="status">
                             <i class="far fa-check-square"></i>
                         </button>
-                        <p class="due-date">Due date: <span class="date">${task.dueDate}</span><span>${task.name}</span></p>
+                        <p class="due-date">Due date: <span class="date">${task.dueDate}</span></p>
                         <div class="dropdown-menu" aria-labelledby="statusMenu">
-                            <a class="dropdown-item" href="#">Todo</a>
-                            <a class="dropdown-item" href="#">Progress</a>
-                            <a class="dropdown-item" href="#">Review</a>
-                            <a class="dropdown-item" href="#">Done</a>
+                            <a class="dropdown-item" href="#">${task.status}</a>
                         </div>
                         <!-- select button  -->
                         <button class="btn s-circle" type="button" value="Input"><i class="far fa-circle"></i></button>
@@ -34,22 +31,26 @@ let displayCards = (tasksList) => {
                             <a class="dropdown-item" href="#">${task.assignedTo}</a>
                         </div>
                         <!-- task description button -->
-                        <button class="btn task-des-btn" type="button" data-toggle="collapse" data-target="#task-des1"
-                            aria-expanded="false" aria-controls="task-des1">
+                        <button class="btn task-des-btn" type="button" data-toggle="collapse" 
+                        data-target="#task-des-${task.id}"
+                            aria-expanded="false"
+                            aria-controls="task-des-${task.id}">
                             <i class="fas fa-angle-double-down"></i>
                         </button>
                     </div>
-                    <div class="collapse" id="task-des1">
+                    <div class="collapse" id="task-des-${task.id}">
                         <div class="card card-body">
                             ${task.description}
                         </div>
                     </div>
                 </div>
             </div>
-            `
+        `
     })
     cardsContainer.innerHTML = htmlContents
 }
+
+
 
 // *make id number the same as array index number
 class TaskManager {
@@ -61,11 +62,11 @@ class TaskManager {
     }
 
     // add task
-    addTask(name, assignedTo, dueDate, title, description) {
+    addTask(status, assignedTo, dueDate, title, description) {
         const task = {
             id: this.currentID,
-            name: name,
-            status: 'Todo',
+            // name: name,
+            status: status,
             assignedTo: assignedTo,
             dueDate: dueDate,
             title: title,
@@ -111,8 +112,5 @@ class TaskManager {
     //     this.tasks[taskIndex].assignee = assignee
     // }
 }
-
-
 let testTaskManager = new TaskManager()
 let tasksList = testTaskManager.tasks
-displayCards(tasksList)
