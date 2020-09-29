@@ -8,11 +8,11 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
-    <link rel="stylesheet" href="list-of-tasks.css">
+    <link rel="stylesheet" href="task-lists-modal-form.css">
 </head>
 
 <body>
-    <div class="container-fluid">
+    <div class="container">
         <!-- header  -->
         <header class="task-header d-flex justify-content-between align-items-center mt-3">
             <div class="btn last-page"><a class="btn" href="#" role="button"><i class="fas fa-angle-left"></i></a>
@@ -123,12 +123,14 @@
             </div>
         </div>
 
-        <div class="cards-container">
+        <!-- task cards' container  -->
+        <div id="cards-container">
         </div>
 
         <!-- footer  -->
-        <footer class="task-footer fixed-bottom">
+        <footer class="task-footer fixed-bottom bg-light">
             <nav class="navbar navbar-expand-lg navbar-light">
+                <!-- menu  -->
                 <div class="collapse navbar-collapse" id="navbarNavBtn">
                     <div class="navbar-nav">
                         <a class="nav-item nav-link active" href="#">Board</a>
@@ -137,13 +139,18 @@
                         <a class="nav-item nav-link" href="#">Settings</a>
                     </div>
                 </div>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavBtn"
+                <button class="navbar-toggler dropup" type="button" data-toggle="collapse" data-target="#navbarNavBtn"
                     aria-controls="navbarNavBtn" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+                <!-- add button  -->
                 <button type="button" class="btn add-new-list" data-toggle="modal" data-target="#modal-form"><a
                         class="navbar-brand" href="#"><i class="fas fa-plus"></i></a></button>
+                <!-- search button  -->
                 <div class="btn search"><a class="navbar-brand" href="#"><i class="fas fa-search"></i></a></div>
+                <!-- delete buttton -->
+                <button type="button" class="btn delete-list toggle-delete-btn"><a class="navbar-brand" href="#"><i
+                            class="fas fa-trash-alt"></i></a></button>
             </nav>
         </footer>
 
@@ -161,20 +168,24 @@
                         </button>
                     </div>
                     <!-- modal body  -->
-                    <form class="modal-body" action="" method="post" id="form">
+                    <form class="modal-body" action="" id="form">
                         <div class="wrap-groups row">
                             <!-- status button  -->
                             <div class="group-status form-group col-2">
                                 <div class="status dropdown">
                                     <button class="status-btn btn" type="button" id="statusMenu" data-toggle="dropdown"
-                                        aria-haspopup="true" aria-expanded="false" title="status">
-                                        <i class="far fa-square"></i>
+                                        aria-haspopup="true" aria-expanded="false" title="status"><i
+                                            class="far fa-circle"></i>
                                     </button>
                                     <div class="status-dropdown dropdown-menu" aria-labelledby="statusMenu">
-                                        <a class="status1 dropdown-item" href="#">Todo</a>
-                                        <a class="status2 dropdown-item" href="#">Progress</a>
-                                        <a class="status3 dropdown-item" href="#">Review</a>
-                                        <a class="status4 dropdown-item" href="#">Done</a>
+                                        <a class="status1 dropdown-item" href="#" name="To do"><i
+                                                class="far fa-circle"></i> <span>To do</span></a>
+                                        <a class="status2 dropdown-item" href="#" name="Progress"><i
+                                                class="fas fa-circle"></i> <span>Progress</span></a>
+                                        <a class="status3 dropdown-item" href="#" name="Review"><i
+                                                class="fas fa-pause-circle"></i> <span>Review</span></a>
+                                        <a class="status4 dropdown-item" href="#" name="Done"><i
+                                                class="fas fa-check-circle"></i> <span>Done</span></a>
                                     </div>
                                 </div>
                             </div>
@@ -223,14 +234,14 @@
                                 <div class="valid-feedback"></div>
                             </div>
                             <!-- task description button -->
-                            <button class="task-collapse-btn btn disabled col-2" type="button" data-toggle="collapse"
+                            <!-- <button class="task-collapse-btn btn disabled col-2" type="button" data-toggle="collapse"
                                 data-target="#task-collapse-btn" aria-expanded="false"
                                 aria-controls="task-collapse-btn">
                                 <i class="fas fa-angle-double-down"></i>
-                            </button>
+                            </button> -->
 
                         </div>
-                        <!-- task contents  -->
+                        <!-- task description  -->
                         <div class="group-content form-group mt-3">
                             <textarea class="form-control" id="task-content" rows="10" value=""></textarea>
                             <div class="invalid-tooltip">
