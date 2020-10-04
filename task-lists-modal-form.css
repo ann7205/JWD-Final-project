@@ -2,7 +2,7 @@
     --uni-font-family: Arial,
         Helvetica,
         sans-serif;
-    --min-width: 375px;
+    --min-width: 360px;
     --max-width: 60%;
 }
 
@@ -25,9 +25,13 @@ body {
     height: 100vh;
 }
 
-.task-header {
+.container {
     min-width: var(--min-width);
     max-width: var(--max-width);
+    height: auto;
+}
+
+.task-header {
     margin: 0 auto;
 }
 
@@ -36,10 +40,13 @@ body {
 }
 
 .card {
-    min-width: var(--min-width);
-    max-width: var(--max-width);
     margin: 0 auto;
     margin-bottom: .5rem;
+}
+
+.due-date:hover,
+.task-title:hover {
+    cursor: pointer;
 }
 
 .card-body {
@@ -52,14 +59,16 @@ body {
     align-items: center;
 }
 
+/* 
 .card-body .dropdown .s-circle {
     float: right;
 }
 
 .card-body .assign-btn .task-des-btn {
     float: right;
-}
+} */
 
+/* footer  */
 .task-footer .navbar {
     min-width: var(--min-width);
     max-width: var(--max-width);
@@ -68,4 +77,35 @@ body {
 
 .task-footer .navbar .navbar-toggler {
     border-color: transparent;
+}
+
+.toggle-delete-btn {
+    display: none;
+}
+
+/* Card  */
+#statusMenu,
+#assignMenu {
+    font-size: 1.3rem;
+}
+
+.status1 {
+    background: #92c9fc;
+}
+
+.status2 {
+    background: #d2fc92;
+}
+
+.status3 {
+    background: #fdd07c;
+}
+
+.status4,
+.status4 i {
+    color: #808080;
+}
+
+.card.selected {
+    background-color: gray;
 }
