@@ -44,6 +44,11 @@ body {
     margin-bottom: .5rem;
 }
 
+.due-date:hover,
+.task-title:hover {
+    cursor: pointer;
+}
+
 .card-body {
     display: grid;
 }
@@ -54,13 +59,14 @@ body {
     align-items: center;
 }
 
+/* 
 .card-body .dropdown .s-circle {
     float: right;
 }
 
 .card-body .assign-btn .task-des-btn {
     float: right;
-}
+} */
 
 /* footer  */
 .task-footer .navbar {
