@@ -24,7 +24,7 @@ body {
     height: 100vh;
 }
 
-.container-fluid {
+.container {
     min-width: var(--min-width);
     max-width: var(--max-width);
 }
@@ -44,16 +44,17 @@ body {
 
 .card-body {
     display: grid;
-    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-columns: .5fr 3fr .5fr .5fr;
     align-items: center;
 }
 
-.card-body .title {
-    margin-bottom: 0;
+.card-body .title a,
+.pin {
+    font-size: 1.5rem;
 }
 
-.card-body .s-circle {
-    float: right;
+.modal-link:hover {
+    cursor: pointer;
 }
 
 .board-footer .navbar {
@@ -62,6 +63,10 @@ body {
     margin: 0 auto;
 }
 
-.board-footer .navbar .navbar-toggler {
-    border-color: transparent;
+.card.selected {
+    background-color: gray;
+}
+
+.toggle-delete-btn {
+    display: none;
 }

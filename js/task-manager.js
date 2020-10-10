@@ -42,14 +42,14 @@ let displayCards = (tasksList, selectedTasks) => {
                             <i class="${statusMap[task.status.trim()].icon}"></i>
                         </button>
                         <div class="dropdown-menu" aria-labelledby="statusMenu">
-                        <a class="status1 dropdown-item status-dropdown-item" href="#" name="To do"><i
-                        class="far fa-circle"></i> <span>To do</span></a>
-                        <a class="status2 dropdown-item status-dropdown-item" href="#" name="Progress"><i
-                        class="fas fa-circle"></i> <span>Progress</span></a>
-                        <a class="status3 dropdown-item status-dropdown-item" href="#" name="Review"><i
-                        class="fas fa-pause-circle"></i> <span>Review</span></a>
-                        <a class="status4 dropdown-item status-dropdown-item" href="#" name="Done"><i
-                        class="fas fa-check-circle"></i> <span>Done</span></a>
+                            <a class="status1 dropdown-item status-dropdown-item" href="#" name="To do"><i
+                            class="far fa-circle"></i> <span>To do</span></a>
+                            <a class="status2 dropdown-item status-dropdown-item" href="#" name="Progress"><i
+                            class="fas fa-circle"></i> <span>Progress</span></a>
+                            <a class="status3 dropdown-item status-dropdown-item" href="#" name="Review"><i
+                            class="fas fa-pause-circle"></i> <span>Review</span></a>
+                            <a class="status4 dropdown-item status-dropdown-item" href="#" name="Done"><i
+                            class="fas fa-check-circle"></i> <span>Done</span></a>
                         </div>
                         
                         <!-- due date  -->
@@ -92,6 +92,7 @@ let displayCards = (tasksList, selectedTasks) => {
     cardsContainer.innerHTML = htmlContents
 }
 
+
 // const testTasks = [{
 //     id: 20,
 //     // name: name,
@@ -130,11 +131,11 @@ let displayCards = (tasksList, selectedTasks) => {
 // *make id number the same as array index number
 class TaskManager {
     // define a tasks and a selected array for delete
-    constructor(newId) {
+    constructor(boardId, newId) {
         this.tasks = [] //testTasks 
         this.selectedTasks = []
         this.currentID = newId || 0
-
+        this.boardId = boardId
     }
 
     addTask(status, assignedTo, dueDate, title, description) {
@@ -155,17 +156,17 @@ class TaskManager {
     save() {
         let tasksJson = JSON.stringify(this.tasks)
         let idJson = JSON.stringify(this.currentID)
-        localStorage.setItem('tasks', tasksJson)
-        localStorage.setItem('id', idJson)
+        localStorage.setItem('tasks_' + this.boardId, tasksJson)
+        localStorage.setItem('id_' + this.boardId, idJson)
 
     }
 
     // Load data from local storage
     load() {
-        let getTasks = localStorage.getItem('tasks')
+        let getTasks = localStorage.getItem('tasks_' + this.boardId)
         let tasksParse = JSON.parse(getTasks) || []
         this.tasks = tasksParse
-        let getId = localStorage.getItem('id') || 0
+        let getId = localStorage.getItem('id_' + this.boardId) || 0
         let idParse = JSON.parse(getId)
         this.currentID = idParse
 
@@ -216,7 +217,7 @@ class TaskManager {
 
 }
 
-let newTaskManager = new TaskManager()
+let newTaskManager = new TaskManager(boardId)
 newTaskManager.load()
 displayCards(newTaskManager.tasks, newTaskManager.selectedTasks)
 

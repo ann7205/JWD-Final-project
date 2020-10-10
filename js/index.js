@@ -9,6 +9,11 @@ const binBtn = document.querySelector('.delete-list')
 const card = document.querySelector('.card')
 const inputs = document.querySelectorAll('input')
 const iconElement = document.querySelector('.dropdown-icon')
+const delAllBtn = document.querySelector('.b-square .far.fa-square')
+const title = document.querySelector('.title')
+const boardId = location.search.split('=')[1]
+
+// console.log(`Board id: '${boardId}'`)
 
 // set edit form is false and new form is true
 let isEditForm = false
@@ -119,11 +124,13 @@ document.querySelector('.add-new-list').addEventListener('click', () => {
 
 // Get task id
 function findTaskId(element) {
+    console.log(element)
     let cardElement = element
 
     while (cardElement.dataset.taskId === undefined) {
         cardElement = cardElement.parentElement
     }
+    console.log(cardElement)
     return Number(cardElement.dataset.taskId)
 }
 
@@ -147,7 +154,6 @@ function onCardClick(e) {
         newTaskManager.editTask(getTask.id, updateStatus, getTask.assignedTo, getTask.dueDate, getTask.title, getTask.description)
         newTaskManager.save()
         displayCards(newTaskManager.tasks, newTaskManager.selectedTasks)
-
         // Open the modal by clicking card
     } else if (e.target.matches('.modal-link')) {
         isEditForm = true
@@ -199,28 +205,17 @@ document.querySelector('.modal .status-dropdown').addEventListener('click', (e) 
     iconElement.className = 'dropdown-icon ' + statusMap[status].icon
 })
 
-// Task description validation
-// taskContent.addEventListener('input', (e) => {
-//     e.target.classList.remove('is-invalid', 'is-valid')
-//     let inputValue = e.target.value.trim()
-//     let inputLength = inputValue.length
-//     if (inputLength === 0 || inputLength > 50) {
-//         e.target.classList.add('is-invalid')
-//     } else {
-//         e.target.classList.add('is-valid')
-//     }
-// })
+// Select all button
+delAllBtn.addEventListener('click', (e) => {
+        e.target.classList.toggle('fas')
+    newTaskManager.tasks.forEach(task => {
+        newTaskManager.selectTask(task.id)
 
-// // Name validation
-// inputName.addEventListener('input', (e) => {
-//     e.target.classList.remove('is-invalid', 'is-valid')
-//     let inputValue = e.target.value.trim()
-//     let inputLength = inputValue.length
-//     // let invalidFeedback = inputLength === 0 ? e.target.classList.add('invalid') :
-//     //     (inputLength > 15 ? e.target.classList.add('is-invalid'))
-//     if (inputLength === 0 || inputLength > 20) {
-//         e.target.classList.add('is-invalid')
-//     } else {
-//         e.target.classList.add('is-valid')
-//     }
-// })
+        if (newTaskManager.selectedTasks.length > 0) {
+            binBtn.classList.remove('toggle-delete-btn')
+        } else {
+            binBtn.classList.add('toggle-delete-btn')
+        }
+    })
+    console.log(newTaskManager.selectedTasks)
+})
