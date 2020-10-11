@@ -1,5 +1,6 @@
 const statusBtn = document.querySelector('.status-dropdown')
-const assignBtn = document.querySelector('.assign-dropdown')
+// const assignBtn = document.querySelector('.assign-dropdown')
+const assign = document.querySelector('#task-assign')
 const date = document.querySelector('#due-date')
 const taskTitle = document.querySelector('#task-title')
 const taskContent = document.querySelector('#task-content')
@@ -13,7 +14,6 @@ const delAllBtn = document.querySelector('.b-square .far.fa-square')
 const title = document.querySelector('.title')
 const boardId = location.search.split('=')[1]
 
-// console.log(`Board id: '${boardId}'`)
 
 // set edit form is false and new form is true
 let isEditForm = false
@@ -45,10 +45,10 @@ date.addEventListener('change', (e) => {
 })
 
 // Get assignedTo value
-let assignTo = ''
-assignBtn.addEventListener('click', (e) => {
-    assignTo = e.target.textContent
-})
+// let assignTo = ''
+// assignBtn.addEventListener('click', (e) => {
+//     assignTo = e.target.textContent
+// })
 
 // Get status value
 let status = ''
@@ -62,7 +62,8 @@ function submitForm(e) {
 
     let dateVal = date.value
     let statusVal = status
-    let assignVal = assignTo
+    let assignVal = assign.value
+    console.log(assignVal)
     let titleVal = taskTitle.value
     let contentVal = taskContent.value
 
@@ -92,7 +93,7 @@ function submitForm(e) {
         // remove data from the form
         date.value = ''
         status = ''
-        assignTo = ''
+        assign.value = ''
         taskTitle.value = ''
         taskContent.value = ''
     } else {
@@ -111,7 +112,7 @@ document.querySelector('.add-new-list').addEventListener('click', () => {
 
     date.value = ''
     status = ''
-    assignTo = ''
+    assign.value = ''
     taskTitle.value = ''
     taskContent.value = ''
 
@@ -124,13 +125,11 @@ document.querySelector('.add-new-list').addEventListener('click', () => {
 
 // Get task id
 function findTaskId(element) {
-    console.log(element)
     let cardElement = element
 
     while (cardElement.dataset.taskId === undefined) {
         cardElement = cardElement.parentElement
     }
-    console.log(cardElement)
     return Number(cardElement.dataset.taskId)
 }
 
@@ -151,7 +150,7 @@ function onCardClick(e) {
         }
         const getTask = newTaskManager.findTask(getId)
         let updateStatus = currentTarget['name']
-        newTaskManager.editTask(getTask.id, updateStatus, getTask.assignedTo, getTask.dueDate, getTask.title, getTask.description)
+        newTaskManager.editTask(getTask.id, updateStatus, getTask.assign, getTask.dueDate, getTask.title, getTask.description)
         newTaskManager.save()
         displayCards(newTaskManager.tasks, newTaskManager.selectedTasks)
         // Open the modal by clicking card
@@ -167,7 +166,7 @@ function onCardClick(e) {
         taskTitle.value = task.title
         date.value = task.dueDate
         status = task.status
-        assignTo = task.assignedTo
+        assign.value = task.assign
         taskContent.value = task.description
     }
     // Toggle to show or hidee bin button
@@ -219,3 +218,9 @@ delAllBtn.addEventListener('click', (e) => {
     })
     console.log(newTaskManager.selectedTasks)
 })
+
+// Assign title to task list
+    let getItem = localStorage.getItem('items')
+    let parseItem = JSON.parse(getItem)
+    let parseBoardId = Number(boardId)
+    title.textContent = parseItem[parseBoardId]['title']

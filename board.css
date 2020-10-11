@@ -4,6 +4,7 @@
         sans-serif;
     --min-width: 360px;
     --max-width: 60%;
+    --almost-white: #EFEBE0;
 }
 
 *,
@@ -22,6 +23,7 @@ body {
     font-family: var(--uni-font-family);
     width: 100vw;
     height: 100vh;
+    background-color: var(--almost-white);
 }
 
 .container {
@@ -37,9 +39,21 @@ body {
     font-size: 2rem;
 }
 
+/* footer  */
+.fixed-footer {
+    background-color: var(--almost-white) !important;
+}
+
+.fixed-footer .navbar {
+    min-width: var(--min-width);
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
 .card {
     margin: 0 auto;
     margin-bottom: .5rem;
+    border-color: var(--almost-white);
 }
 
 .card-body {
@@ -64,7 +78,7 @@ body {
 }
 
 .card.selected {
-    background-color: gray;
+    background-color: #A19FAC;
 }
 
 .toggle-delete-btn {

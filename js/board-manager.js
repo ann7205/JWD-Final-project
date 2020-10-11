@@ -1,22 +1,3 @@
-// Status object
-const statusMap = {
-    'To do': {
-        className: 'status1',
-        icon: 'far fa-circle'
-    },
-    'Progress': {
-        className: 'status2',
-        icon: 'fas fa-circle'
-    },
-    'Review': {
-        className: 'status3',
-        icon: 'fas fa-pause-circle'
-    },
-    'Done': {
-        className: 'status4',
-        icon: 'fas fa-check-circle'
-    },
-}
 
 // Display cards
 let displayTitle = (itemList, selectedItems) => {

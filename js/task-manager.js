@@ -29,6 +29,7 @@ let displayCards = (tasksList, selectedTasks) => {
         const isSelected = selectedTasks.includes(task.id)
         const selectedClass = isSelected ? 'selected' : ''
         const switchClass = isSelected ? 'fas fa-square' : 'far fa-square'
+        const assignee = task.assignedTo.toUpperCase().split('')[0] || '<i class="fas fa-user-tag"></i>'
 
         htmlContents += `
             <div class="card shadow rounded ${statusMap[task.status.trim()].className} ${selectedClass}" data-task-id="${task.id}">
@@ -36,7 +37,7 @@ let displayCards = (tasksList, selectedTasks) => {
 
                     <!-- status button  -->
                     <div class="dropdown status-btn">
-                        <button class="btn" type="button" id="statusMenu" data-toggle="dropdown" aria-haspopup="true"
+                        <button class="btn pl-0" type="button" id="statusMenu" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded ="false"
                             title="${task.status}">
                             <i class="${statusMap[task.status.trim()].icon}"></i>
@@ -53,24 +54,20 @@ let displayCards = (tasksList, selectedTasks) => {
                         </div>
                         
                         <!-- due date  -->
-                        <p class="due-date modal-link" data-toggle="modal" data-target="#modal-form">Due date: <span class="date modal-link">${task.dueDate}</span></p>
+                        <p class="due-date modal-link ml-2" data-toggle="modal" data-target="#modal-form">Due date: <span class="date modal-link">${task.dueDate}</span></p>
                         
                         <!-- select button  -->
-                        <button class="btn" type="button" value="Input"><i class="${switchClass} select-btn"></i></button>
+                        <button class="btn square-btn" type="button" value="Input"><i class="${switchClass} select-btn"></i></button>
                     </div>
 
                     <!-- assign button  -->
-                    <div class="dropdown assign-btn">
-                        <button class="btn" type="button" id="assignMenu" data-toggle="dropdown" aria-haspopup="true"
-                            aria-expanded="false" title="assign to">
-                            <i class="fas fa-user-tag"></i>
-                        </button>
+                    <div class="dropdown">
+                        <div class="assign" id="assignMenu" title="${task.assignedTo}">
+                            <div class="text-center">${assignee}</div>
+                        </div>
 
                         <!-- text title-->
-                        <p class="task-title modal-link" data-toggle="modal" data-target="#modal-form">${task.title}</p>
-                        <div class="dropdown-menu" aria-labelledby="assignMenu">
-                            <a class="dropdown-item" href="#">${task.assignedTo}</a>
-                        </div>
+                        <p class="task-title modal-link ml-2" data-toggle="modal" data-target="#modal-form">${task.title}</p>
 
                         <!-- task description button -->
                         <button class="btn task-des-btn" type="button" data-toggle="collapse" 
@@ -92,47 +89,11 @@ let displayCards = (tasksList, selectedTasks) => {
     cardsContainer.innerHTML = htmlContents
 }
 
-
-// const testTasks = [{
-//     id: 20,
-//     // name: name,
-//     status: 'To do',
-//     assignedTo: 'Liz',
-//     dueDate: '2020-10-10',
-//     title: 'Test todo task',
-//     description: 'Some description'
-// }, {
-//     id: 21,
-//     // name: name,
-//     status: 'Progress',
-//     assignedTo: 'Liz',
-//     dueDate: '2020-10-10',
-//     title: 'Test progress task',
-//     description: 'Some description'
-// }, {
-//     id: 22,
-//     // name: name,
-//     status: 'Review',
-//     assignedTo: 'Liz',
-//     dueDate: '2020-10-10',
-//     title: 'Test review task',
-//     description: 'Some description'
-// }, {
-//     id: 23,
-//     // name: name,
-//     status: 'Done',
-//     assignedTo: 'Liz',
-//     dueDate: '2020-10-10',
-//     title: 'Test done task',
-//     description: 'Some description'
-// }]
-
-
 // *make id number the same as array index number
 class TaskManager {
     // define a tasks and a selected array for delete
     constructor(boardId, newId) {
-        this.tasks = [] //testTasks 
+        this.tasks = [] 
         this.selectedTasks = []
         this.currentID = newId || 0
         this.boardId = boardId
@@ -141,7 +102,6 @@ class TaskManager {
     addTask(status, assignedTo, dueDate, title, description) {
         const task = {
             id: this.currentID,
-            // name: name,
             status: status,
             assignedTo: assignedTo,
             dueDate: dueDate,
@@ -206,7 +166,7 @@ class TaskManager {
     editTask(editId, status, assignedTo, dueDate, title, description) {
         const taskData = this.findTask(editId)
         taskData.status = status
-        taskData.assignedTo = assignedTo
+        taskData.assignedTo = assign
         taskData.dueDate = dueDate
         taskData.title = title
         taskData.description = description
@@ -214,10 +174,10 @@ class TaskManager {
         const taskIndex = this.tasks.findIndex(task => task.id === editId)
         this.tasks[taskIndex] = taskData
     }
-
 }
 
 let newTaskManager = new TaskManager(boardId)
+// console.log(newTaskManager)
 newTaskManager.load()
 displayCards(newTaskManager.tasks, newTaskManager.selectedTasks)
 

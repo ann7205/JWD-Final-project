@@ -14,7 +14,7 @@
 <body>
     <div class="container">
         <!-- header  -->
-        <header class="task-header d-flex justify-content-between align-items-center mt-3">
+        <header class="task-header d-flex justify-content-between align-items-center my-3">
             <div class="btn last-page"><a class="btn" href="board.html" role="button"><i
                         class="fas fa-angle-left"></i></a>
             </div>
@@ -104,9 +104,8 @@
                         </div>
                         <!-- wrapped assign button, task title-->
                         <div class="wrap-groups row">
-                            <!-- assign button  -->
-                            <div class="group-assign form-group col-2">
-                                <div class="assign dropdown">
+                            <div class="form-group col-2">
+                                <!-- <div class="assign dropdown">
                                     <button class="assign-btn btn" type="button" id="assignMenu" data-toggle="dropdown"
                                         aria-haspopup="true" aria-expanded="false" title="assign to">
                                         <i class="fas fa-user-tag"></i>
@@ -116,7 +115,7 @@
                                         <a class="dropdown-item" href="#">Liz</a>
                                         <a class="dropdown-item" href="#">Alan</a>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                             <!-- task title  -->
                             <div class="group-title form-group col-8 px-0">
@@ -129,6 +128,22 @@
                                     </div>
                                 </label>
                                 <div class="valid-feedback"></div>
+                            </div>
+                        </div>
+                        <div class="wrap-groups row">
+                            <!-- assign  -->
+                            <div class="form-group col-2">
+                            </div>
+                            <div class="group-assign form-group col-8 px-0">
+                                <label for="task-assign" class="mb-0 d-flex align-items-center position-relative">
+                                    Assign to
+                                    <input type="text" class="form-control ml-4" id="task-assign" value=""
+                                        placeholder="name">
+                                    <!-- <div class="invalid-tooltip">
+                                        <p>Please enter name within </p>
+                                    </div> -->
+                                </label>
+                                <!-- <div class="valid-feedback"></div> -->
                             </div>
                         </div>
                         <!-- task description  -->
