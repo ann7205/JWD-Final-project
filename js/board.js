@@ -88,7 +88,6 @@ function findTaskId(element) {
 
 // Click on cards
 function onCardClick(e) {
-    console.log(e.target)
     let getId
     // select button for delete
     if (e.target.matches('.select-btn')) {
@@ -103,7 +102,6 @@ function onCardClick(e) {
         editTaskId = getId
 
         const task = newBoardManager.findTask(getId)
-        console.log(task)
 
         // Render back to the form
         titleInput.value = task.title
@@ -128,6 +126,7 @@ binBtn.addEventListener('click', (e) => {
 
     newBoardManager.clearSelected()
     binBtn.classList.add('toggle-delete-btn')
+    delAllBtn.classList.remove('fas')
 
     displayTitle(newBoardManager.items, newBoardManager.selectedItems)
 })

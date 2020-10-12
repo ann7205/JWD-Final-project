@@ -4,6 +4,7 @@
         sans-serif;
     --min-width: 360px;
     --max-width: 60%;
+    --almost-white: #EFEBE0;
 }
 
 *,
@@ -23,6 +24,7 @@ body {
     font-family: var(--uni-font-family);
     width: 100vw;
     height: 100vh;
+    background-color: var(--almost-white);
 }
 
 .container {
@@ -33,32 +35,33 @@ body {
 
 .task-header {
     margin: 0 auto;
+    color: #9A91A4;
 }
 
 .task-header .btn i {
     font-size: 2rem;
+    color: #9A91A4 !important;
 }
 
-.card {
-    margin: 0 auto;
-    margin-bottom: .5rem;
+#form .status-btn,
+#form .assign-btn {
+    color: #000;
 }
 
 .modal-link:hover {
     cursor: pointer;
 }
 
-.card-body {
-    display: grid;
-}
-
-.dropdown {
-    display: grid;
-    grid-template-columns: .5fr 3fr .5fr;
-    align-items: center;
-}
 
 /* footer  */
+.fixed-footer {
+    background-color: var(--almost-white) !important;
+}
+
+.fixed-footer i {
+    color: #9A91A4 !important;
+}
+
 .fixed-footer .navbar {
     min-width: var(--min-width);
     max-width: var(--max-width);
@@ -70,28 +73,65 @@ body {
 }
 
 /* Card  */
+.card {
+    margin: 0 auto;
+    margin-bottom: .5rem;
+    border-style: none;
+    color: var(--almost-white);
+}
+
+.card-body {
+    display: grid;
+}
+
+.dropdown {
+    display: grid;
+    grid-template-columns: .5fr 3fr .5fr;
+    align-items: center;
+    justify-content: center;
+}
+
 #statusMenu,
-#assignMenu {
+#assignMenu,
+.square-btn,
+.task-des-btn,
+.dropdown-item {
+    color: var(--almost-white);
     font-size: 1.3rem;
 }
 
+.card .card-body .task-des {
+    color: #000;
+}
+
+#assignMenu {
+    border: 1px solid var(--almost-white);
+    border-radius: 50%;
+    font-weight: 700;
+    width: 45px;
+    height: 45px;
+    display: grid;
+    align-items: center;
+    margin: 0 auto;
+}
+
 .status1 {
-    background: #92c9fc;
+    background: #597290;
 }
 
 .status2 {
-    background: #d2fc92;
+    background: #728485;
 }
 
 .status3 {
-    background: #fdd07c;
+    background: #CDBB7E;
 }
 
-.status4,
-.status4 i {
-    color: #808080;
-}
+/* .status4 { */
+/* background: var(--almost-white); */
+/* color: var(--almost-white); */
+/* } */
 
 .card.selected {
-    background-color: gray;
+    background-color: #A19FAC;
 }
