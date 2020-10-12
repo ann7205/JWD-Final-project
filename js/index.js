@@ -138,13 +138,16 @@ function onCardClick(e) {
     } else if (e.target.matches('.status-dropdown-item') || e.target.parentElement.matches('.status-dropdown-item')) {
         getId = findTaskId(e.target)
         let currentTarget = e.target
+
         while (!currentTarget.matches('.dropdown-item')) {
             currentTarget = currentTarget.parentElement
         }
         const getTask = newTaskManager.findTask(getId)
+
         let updateStatus = currentTarget['name']
         newTaskManager.editTask(getTask.id, updateStatus, getTask.assignedTo, getTask.dueDate, getTask.title, getTask.description)
         newTaskManager.save()
+
         displayCards(newTaskManager.tasks, newTaskManager.selectedTasks)
     // Open the modal by clicking card
     } else if (e.target.matches('.modal-link')) {
@@ -210,7 +213,7 @@ delAllBtn.addEventListener('click', (e) => {
             binBtn.classList.add('toggle-delete-btn')
         }
     })
-    // console.log(newTaskManager.selectedTasks) 
+    console.log(newTaskManager.selectedTasks) 
 })
 
 // Assign title to task list
