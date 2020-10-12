@@ -126,6 +126,7 @@ binBtn.addEventListener('click', (e) => {
 
     newBoardManager.clearSelected()
     binBtn.classList.add('toggle-delete-btn')
+    delAllBtn.classList.remove('fas')
 
     displayTitle(newBoardManager.items, newBoardManager.selectedItems)
 })

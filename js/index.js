@@ -141,7 +141,7 @@ function onCardClick(e) {
     if (e.target.matches('.select-btn')) {
         getId = findTaskId(e.target)
         newTaskManager.selectTask(getId)
-        // select card for update status
+    // select card for update status
     } else if (e.target.matches('.status-dropdown-item') || e.target.parentElement.matches('.status-dropdown-item')) {
         getId = findTaskId(e.target)
         let currentTarget = e.target
@@ -150,10 +150,10 @@ function onCardClick(e) {
         }
         const getTask = newTaskManager.findTask(getId)
         let updateStatus = currentTarget['name']
-        newTaskManager.editTask(getTask.id, updateStatus, getTask.assign, getTask.dueDate, getTask.title, getTask.description)
+        newTaskManager.editTask(getTask.id, updateStatus, getTask.assignedTo, getTask.dueDate, getTask.title, getTask.description)
         newTaskManager.save()
         displayCards(newTaskManager.tasks, newTaskManager.selectedTasks)
-        // Open the modal by clicking card
+    // Open the modal by clicking card
     } else if (e.target.matches('.modal-link')) {
         isEditForm = true
 
@@ -188,6 +188,7 @@ binBtn.addEventListener('click', (e) => {
 
     newTaskManager.clearSelected()
     binBtn.classList.add('toggle-delete-btn')
+    delAllBtn.classList.remove('fas')
 
     displayCards(newTaskManager.tasks, newTaskManager.selectedTasks)
 })
@@ -216,11 +217,13 @@ delAllBtn.addEventListener('click', (e) => {
             binBtn.classList.add('toggle-delete-btn')
         }
     })
-    console.log(newTaskManager.selectedTasks)
+    console.log(newTaskManager.selectedTasks) 
 })
 
 // Assign title to task list
     let getItem = localStorage.getItem('items')
     let parseItem = JSON.parse(getItem)
+    console.log(parseItem)
     let parseBoardId = Number(boardId)
     title.textContent = parseItem[parseBoardId]['title']
+    console.log(title.textContent)

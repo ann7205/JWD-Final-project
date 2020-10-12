@@ -29,7 +29,8 @@ let displayCards = (tasksList, selectedTasks) => {
         const isSelected = selectedTasks.includes(task.id)
         const selectedClass = isSelected ? 'selected' : ''
         const switchClass = isSelected ? 'fas fa-square' : 'far fa-square'
-        const assignee = task.assignedTo.toUpperCase().split('')[0] || '<i class="fas fa-user-tag"></i>'
+        const assignee = task.assignedTo ? task.assignedTo.toUpperCase().split('')[0] : '<i class="fas fa-user-tag"></i>'
+        console.log(assignee)
 
         htmlContents += `
             <div class="card shadow rounded ${statusMap[task.status.trim()].className} ${selectedClass}" data-task-id="${task.id}">
@@ -37,7 +38,7 @@ let displayCards = (tasksList, selectedTasks) => {
 
                     <!-- status button  -->
                     <div class="dropdown status-btn">
-                        <button class="btn pl-0" type="button" id="statusMenu" data-toggle="dropdown" aria-haspopup="true"
+                        <button class="btn p-0 type="button" id="statusMenu" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded ="false"
                             title="${task.status}">
                             <i class="${statusMap[task.status.trim()].icon}"></i>
@@ -63,7 +64,7 @@ let displayCards = (tasksList, selectedTasks) => {
                     <!-- assign button  -->
                     <div class="dropdown">
                         <div class="assign" id="assignMenu" title="${task.assignedTo}">
-                            <div class="text-center">${assignee}</div>
+                            <div class="assignee text-center">${assignee}</div>
                         </div>
 
                         <!-- text title-->
@@ -138,7 +139,6 @@ class TaskManager {
         if (this.selectedTasks.includes(taskId)) {
             // remove the item from the selected list if it's already in the list
             this.selectedTasks = this.selectedTasks.filter(id => id !== taskId)
-
         } else {
             this.selectedTasks.push(taskId)
         }
@@ -166,7 +166,7 @@ class TaskManager {
     editTask(editId, status, assignedTo, dueDate, title, description) {
         const taskData = this.findTask(editId)
         taskData.status = status
-        taskData.assignedTo = assign
+        taskData.assignedTo = assignedTo
         taskData.dueDate = dueDate
         taskData.title = title
         taskData.description = description
@@ -177,7 +177,7 @@ class TaskManager {
 }
 
 let newTaskManager = new TaskManager(boardId)
-// console.log(newTaskManager)
+console.log(newTaskManager)
 newTaskManager.load()
 displayCards(newTaskManager.tasks, newTaskManager.selectedTasks)
 
