@@ -1,5 +1,4 @@
 const statusBtn = document.querySelector('.status-dropdown')
-// const assignBtn = document.querySelector('.assign-dropdown')
 const assign = document.querySelector('#task-assign')
 const date = document.querySelector('#due-date')
 const taskTitle = document.querySelector('#task-title')
@@ -37,18 +36,13 @@ date.addEventListener('change', (e) => {
     let inputValue = e.target.value
     let inputDate = new Date(inputValue)
     let currentDate = new Date()
+
     if (inputValue === '' || inputDate.setHours(0, 0, 0, 0) < currentDate.setHours(0, 0, 0, 0)) {
         e.target.classList.add('is-invalid')
     } else {
         e.target.classList.add('is-valid')
     }
 })
-
-// Get assignedTo value
-// let assignTo = ''
-// assignBtn.addEventListener('click', (e) => {
-//     assignTo = e.target.textContent
-// })
 
 // Get status value
 let status = ''
@@ -63,7 +57,6 @@ function submitForm(e) {
     let dateVal = date.value
     let statusVal = status
     let assignVal = assign.value
-    console.log(assignVal)
     let titleVal = taskTitle.value
     let contentVal = taskContent.value
 
@@ -145,13 +138,16 @@ function onCardClick(e) {
     } else if (e.target.matches('.status-dropdown-item') || e.target.parentElement.matches('.status-dropdown-item')) {
         getId = findTaskId(e.target)
         let currentTarget = e.target
+
         while (!currentTarget.matches('.dropdown-item')) {
             currentTarget = currentTarget.parentElement
         }
         const getTask = newTaskManager.findTask(getId)
+
         let updateStatus = currentTarget['name']
         newTaskManager.editTask(getTask.id, updateStatus, getTask.assignedTo, getTask.dueDate, getTask.title, getTask.description)
         newTaskManager.save()
+
         displayCards(newTaskManager.tasks, newTaskManager.selectedTasks)
     // Open the modal by clicking card
     } else if (e.target.matches('.modal-link')) {
@@ -166,7 +162,7 @@ function onCardClick(e) {
         taskTitle.value = task.title
         date.value = task.dueDate
         status = task.status
-        assign.value = task.assign
+        assign.value = task.assignedTo
         taskContent.value = task.description
     }
     // Toggle to show or hidee bin button
@@ -223,7 +219,6 @@ delAllBtn.addEventListener('click', (e) => {
 // Assign title to task list
     let getItem = localStorage.getItem('items')
     let parseItem = JSON.parse(getItem)
-    console.log(parseItem)
     let parseBoardId = Number(boardId)
-    title.textContent = parseItem[parseBoardId]['title']
-    console.log(title.textContent)
+    title.textContent = parseItem.find(board => board.id === parseBoardId).title
+    // console.log(title.textContent)

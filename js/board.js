@@ -121,7 +121,7 @@ cardsContainer.addEventListener('click', onCardClick)
 binBtn.addEventListener('click', (e) => {
 
     newBoardManager.selectedItems.forEach(taskId => {
-        newBoardManager.deleteTask(taskId)
+        newBoardManager.deleteBoard(taskId)
     })
 
     newBoardManager.clearSelected()

@@ -39,7 +39,7 @@ body {
 }
 
 .task-header .btn i {
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: #9A91A4 !important;
 }
 
@@ -62,6 +62,10 @@ body {
     color: #9A91A4 !important;
 }
 
+/* #navbarNavBtn .navbar-toggler-icon {
+    color: #9A91A4 !important;
+} */
+
 .fixed-footer .navbar {
     min-width: var(--min-width);
     max-width: var(--max-width);
@@ -80,10 +84,6 @@ body {
     color: var(--almost-white);
 }
 
-.card-body {
-    display: grid;
-}
-
 .dropdown {
     display: grid;
     grid-template-columns: .5fr 3fr .5fr;
@@ -92,7 +92,6 @@ body {
 }
 
 #statusMenu,
-#assignMenu,
 .square-btn,
 .task-des-btn,
 .dropdown-item {
@@ -100,16 +99,18 @@ body {
     font-size: 1.3rem;
 }
 
-.card .card-body .task-des {
+.card .task-des {
     color: #000;
 }
 
 #assignMenu {
+    color: var(--almost-white);
+    font-size: 1rem;
     border: 1px solid var(--almost-white);
     border-radius: 50%;
     font-weight: 700;
-    width: 45px;
-    height: 45px;
+    width: 30px;
+    height: 30px;
     display: grid;
     align-items: center;
     margin: 0 auto;
@@ -126,11 +127,6 @@ body {
 .status3 {
     background: #CDBB7E;
 }
-
-/* .status4 { */
-/* background: var(--almost-white); */
-/* color: var(--almost-white); */
-/* } */
 
 .card.selected {
     background-color: #A19FAC;

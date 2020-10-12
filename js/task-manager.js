@@ -30,7 +30,7 @@ let displayCards = (tasksList, selectedTasks) => {
         const selectedClass = isSelected ? 'selected' : ''
         const switchClass = isSelected ? 'fas fa-square' : 'far fa-square'
         const assignee = task.assignedTo ? task.assignedTo.toUpperCase().split('')[0] : '<i class="fas fa-user-tag"></i>'
-        console.log(assignee)
+        let splitDate = task.dueDate.split('-').reverse().join('/')
 
         htmlContents += `
             <div class="card shadow rounded ${statusMap[task.status.trim()].className} ${selectedClass}" data-task-id="${task.id}">
@@ -55,7 +55,7 @@ let displayCards = (tasksList, selectedTasks) => {
                         </div>
                         
                         <!-- due date  -->
-                        <p class="due-date modal-link ml-2" data-toggle="modal" data-target="#modal-form">Due date: <span class="date modal-link">${task.dueDate}</span></p>
+                        <p class="due-date modal-link ml-2" data-toggle="modal" data-target="#modal-form">Due date: <span class="date modal-link">${splitDate}</span></p>
                         
                         <!-- select button  -->
                         <button class="btn square-btn" type="button" value="Input"><i class="${switchClass} select-btn"></i></button>
@@ -78,8 +78,8 @@ let displayCards = (tasksList, selectedTasks) => {
                             <i class="fas fa-angle-double-down"></i>
                         </button>
                     </div>
-                    <div class="collapse" id="task-des-${task.id}">
-                        <div class="task-des card card-body">
+                    <div class="collapse card" id="task-des-${task.id}">
+                        <div class="task-des card-body">
                             ${task.description}
                         </div>
                     </div>

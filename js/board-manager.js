@@ -79,8 +79,9 @@ class BoardManager {
     }
 
     // Delete task
-    deleteTask(taskId) {
+    deleteBoard(taskId) {
         this.items = this.items.filter(item => item.id !== taskId)
+        localStorage.removeItem('tasks_' + taskId)
         this.save()
     }
 
