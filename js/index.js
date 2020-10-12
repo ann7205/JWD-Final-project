@@ -36,6 +36,7 @@ date.addEventListener('change', (e) => {
     let inputValue = e.target.value
     let inputDate = new Date(inputValue)
     let currentDate = new Date()
+
     if (inputValue === '' || inputDate.setHours(0, 0, 0, 0) < currentDate.setHours(0, 0, 0, 0)) {
         e.target.classList.add('is-invalid')
     } else {
@@ -56,7 +57,6 @@ function submitForm(e) {
     let dateVal = date.value
     let statusVal = status
     let assignVal = assign.value
-    console.log(assignVal)
     let titleVal = taskTitle.value
     let contentVal = taskContent.value
 
