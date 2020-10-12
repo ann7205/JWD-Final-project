@@ -1,5 +1,4 @@
 const statusBtn = document.querySelector('.status-dropdown')
-// const assignBtn = document.querySelector('.assign-dropdown')
 const assign = document.querySelector('#task-assign')
 const date = document.querySelector('#due-date')
 const taskTitle = document.querySelector('#task-title')
@@ -43,12 +42,6 @@ date.addEventListener('change', (e) => {
         e.target.classList.add('is-valid')
     }
 })
-
-// Get assignedTo value
-// let assignTo = ''
-// assignBtn.addEventListener('click', (e) => {
-//     assignTo = e.target.textContent
-// })
 
 // Get status value
 let status = ''
@@ -166,7 +159,7 @@ function onCardClick(e) {
         taskTitle.value = task.title
         date.value = task.dueDate
         status = task.status
-        assign.value = task.assign
+        assign.value = task.assignedTo
         taskContent.value = task.description
     }
     // Toggle to show or hidee bin button
@@ -217,13 +210,12 @@ delAllBtn.addEventListener('click', (e) => {
             binBtn.classList.add('toggle-delete-btn')
         }
     })
-    console.log(newTaskManager.selectedTasks) 
+    // console.log(newTaskManager.selectedTasks) 
 })
 
 // Assign title to task list
     let getItem = localStorage.getItem('items')
     let parseItem = JSON.parse(getItem)
-    console.log(parseItem)
     let parseBoardId = Number(boardId)
-    title.textContent = parseItem[parseBoardId]['title']
-    console.log(title.textContent)
+    title.textContent = parseItem.find(board => board.id === parseBoardId).title
+    // console.log(title.textContent)

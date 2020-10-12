@@ -78,8 +78,8 @@ let displayCards = (tasksList, selectedTasks) => {
                             <i class="fas fa-angle-double-down"></i>
                         </button>
                     </div>
-                    <div class="collapse" id="task-des-${task.id}">
-                        <div class="task-des card card-body">
+                    <div class="collapse card" id="task-des-${task.id}">
+                        <div class="task-des card-body">
                             ${task.description}
                         </div>
                     </div>
