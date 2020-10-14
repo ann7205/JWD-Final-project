@@ -13,7 +13,7 @@ let displayTitle = (itemList, selectedItems) => {
         <div class="card shadow rounded ${selectedClass}" data-item-id="${item.id}">
             <div class="card-body text-center">
                 <button class="btn pin" type="button" value="Input"><i class="fas fa-map-pin"></i></button>
-                <h4 class="title modal-link"><a class="btn modal-link" href="index.html?boardId=${item.id}" role="button">${item.title}</a></h4>
+                <h4 class="title modal-link"><a class="btn modal-link" href="task.html?boardId=${item.id}" role="button">${item.title}</a></h4>
                 <button class="btn edit" type="button" value="Input" data-toggle="modal" data-target="#modal-task"><i class="far fa-edit"></i></button>
                 <button class="btn select" type="button" value="Input"><i class="select-btn ${switchClass}"></i></button>
             </div>

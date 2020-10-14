@@ -15,7 +15,7 @@ titleInput.addEventListener('input', (e) => {
     e.target.classList.remove('is-invalid', 'is-valid')
     let inputValue = e.target.value.trim()
     let inputLength = inputValue.length
-    if (inputLength === 0 || inputLength > 20) {
+    if (inputLength === 0 || inputLength > 25) {
         e.target.classList.add('is-invalid')
     } else {
         e.target.classList.add('is-valid')

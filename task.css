@@ -131,3 +131,21 @@ body {
 .card.selected {
     background-color: #A19FAC;
 }
+
+@media all and (max-width: 650px) {
+    .task-header .title {
+        font-size: 1rem;
+    }
+}
+
+@media all and (max-width: 925px) and (min-width: 650px) {
+    .task-header .title {
+        font-size: 1.2rem;
+    }
+}
+
+@media all and (min-width: 925px) {
+    .task-header .title {
+        font-size: 1.4rem;
+    }
+}

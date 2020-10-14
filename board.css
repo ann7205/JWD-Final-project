@@ -84,3 +84,21 @@ body {
 .toggle-delete-btn {
     display: none;
 }
+
+@media all and (max-width: 650px) {
+    .card-body .title a {
+        font-size: .8rem;
+    }
+}
+
+@media all and (max-width: 925px) and (min-width: 650px) {
+    .card-body .title a {
+        font-size: 1rem;
+    }
+}
+
+@media all and (min-width: 925px) {
+    .card-body .title a {
+        font-size: 1.2rem;
+    }
+}
