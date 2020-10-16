@@ -6,9 +6,7 @@ https://ann7205.github.io/JWD-Final-project/
 
 ### How to use it
 
-![logo](image/logo.png)
-![project page](image/project-page.png)
-![task page](image/task-page.png)
+![logo](image/task-plan.png)
 
 * Each name card holds tasks, clicking on the name card directly to get to the task list page
 * Adding name on the board by clicking '+' icon
